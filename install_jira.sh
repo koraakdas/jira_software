@@ -27,6 +27,7 @@ hostname=$(aws rds describe-db-instances --db-instance-identifier mysqldb-server
     
     
 #Passing Values to jira database config file
+cd ..
 sudo sed -i "s/dbname/${database}/g" dbconfig.xml;
 sudo sed -i "s/dbusername/${user}/g" dbconfig.xml;
 sudo sed -i "s/dbpassword/${password}/g" dbconfig.xml;
