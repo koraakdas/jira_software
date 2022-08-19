@@ -10,6 +10,7 @@ wget https://www.atlassian.com/software/jira/downloads/binary/atlassian-jira-sof
 sudo chmod a+x atlassian-jira-software-8.22.6-x64.bin;
 sudo bash ./atlassian-jira-software-8.22.6-x64.bin -q -varfile response.varfile;
 sudo tar -xzf mysql-connector-java-8.0.30.tar.gz;
+cd mysql-connector-java-8.0.30;
 sudo cp mysql-connector-java-8.0.30.jar  /opt/atlassian/jira/lib/;
 export CLASSPATH=$CLASSPATH:/opt/atlassian/jira/lib/mysql-connector-java-8.0.30.jar;
 sudo /etc/init.d/jira stop;
@@ -30,6 +31,8 @@ sudo sed -i "s/dbname/${database}/g" dbconfig.xml;
 sudo sed -i "s/dbusername/${user}/g" dbconfig.xml;
 sudo sed -i "s/dbpassword/${password}/g" dbconfig.xml;
 sudo sed -i "s/dbhostname/${hostname}/g" dbconfig.xml;
+
+cp dbconfig.xml /var/atlassian/application-data/jira/
 
 
 sudo /etc/init.d/jira stop;
