@@ -5,7 +5,7 @@
   <delegator-name>default</delegator-name>
   <database-type>mysql8</database-type>
   <jdbc-datasource>
-    <url>jdbc:mysql://address=(protocol=tcp)(host=dbhostname)(port=3306)/jirab?sessionVariables=default_storage_engine=InnoDB</url>
+    <url>jdbc:mysql://address=(protocol=tcp)(host=dbhostname)(port=3306)/dbname?sessionVariables=default_storage_engine=InnoDB</url>
     <driver-class>com.mysql.cj.jdbc.Driver</driver-class>
     <username>dbusername</username>
     <password>dbpassword</password>
