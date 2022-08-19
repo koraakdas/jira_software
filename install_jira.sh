@@ -13,8 +13,6 @@ sudo tar -xzf mysql-connector-java-8.0.30.tar.gz;
 cd mysql-connector-java-8.0.30;
 sudo cp mysql-connector-java-8.0.30.jar  /opt/atlassian/jira/lib/;
 export CLASSPATH=$CLASSPATH:/opt/atlassian/jira/lib/mysql-connector-java-8.0.30.jar;
-sudo /etc/init.d/jira stop;
-sudo /etc/init.d/jira start;
 
 
 #AWS CLI Environment Variables
