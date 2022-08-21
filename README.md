@@ -1,2 +1,2 @@
 # jira_software
-Jira configuration and Installation Files for Redhat 8 Linux Instance on AWS
+Jira Configuration and Installation Files for AMAZON LINUX INSTANCE .
