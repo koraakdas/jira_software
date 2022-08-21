@@ -30,6 +30,8 @@ sudo sed -i "s/dbpassword/${password}/g" dbconfig.xml;
 sudo sed -i "s/dbhostname/${hostname}/g" dbconfig.xml;
 
 cp dbconfig.xml /var/atlassian/application-data/jira/;
+suo chown jira:jira /var/atlassian/application-data/jira/dbconfig.xml;
+cp server.xml /opt/atlassian/jira/conf;
 cp healthy.html /var/www/html/;
 
 
