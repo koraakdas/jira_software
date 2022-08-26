@@ -16,10 +16,11 @@ export CLASSPATH=$CLASSPATH:/opt/atlassian/jira/lib/mysql-connector-java-8.0.30.
 #AWS CLI ENVIRONMENT VARIABLE
 export AWS_DEFAULT_REGION=us-east-1;
 
+dbinstance=$(aws rds describe-db-instances --query 'DBInstances[*].[DBInstanceIdentifier]' --output text);
 password=$(aws secretsmanager get-secret-value --secret-id MysqldbCreds --query 'SecretString' --output text | jq .password | tr -d \"); 
-database=$(aws rds describe-db-instances --db-instance-identifier mysqldb-server --query DBInstances[0] --output json | jq .DBName | tr -d \");
-user=$(aws rds describe-db-instances --db-instance-identifier mysqldb-server --query DBInstances[0] --output json | jq .MasterUsername | tr -d \");
-hostname=$(aws rds describe-db-instances --db-instance-identifier mysqldb-server --query DBInstances[0] --output json | jq .Endpoint.Address | tr -d \");
+database=$(aws rds describe-db-instances --db-instance-identifier "${dbinstance}" --query DBInstances[0] --output json | jq .DBName | tr -d \");
+user=$(aws rds describe-db-instances --db-instance-identifier "${dbinstance}" --query DBInstances[0] --output json | jq .MasterUsername | tr -d \");
+hostname=$(aws rds describe-db-instances --db-instance-identifier "${dbinstance}" --query DBInstances[0] --output json | jq .Endpoint.Address | tr -d \");
     
     
 #PASSING VALUES TO JIRA DBCONFIG FILE
